@@ -1,6 +1,6 @@
 package com.example.socketapp.data.module
 
-import com.example.socketapp.core.constants.ApiConstants
+import com.example.socketapp.BuildConfig
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -21,11 +21,11 @@ object SocketModule {
         options.upgrade = true
         options.forceNew = true
         options.reconnection = true
-        options.path = ApiConstants.SOCKET_PATH
+        options.path = BuildConfig.SOCKET_PATH
         options.reconnectionAttempts = 0
         options.reconnectionDelay = 5000
 
-        return IO.socket(ApiConstants.SOCKET_URL, options)
+        return IO.socket(BuildConfig.SOCKET_URL, options)
     }
 
     @Provides

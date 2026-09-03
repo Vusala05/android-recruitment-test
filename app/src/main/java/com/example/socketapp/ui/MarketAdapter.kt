@@ -46,16 +46,13 @@ class MarketAdapter: RecyclerView.Adapter<MarketAdapter.MarketHolder>() {
             val isUp = item.trend.equals("up", ignoreCase = true)
             tvTrend.text = if (isUp) "UP" else "DOWN"
 
-            if (isUp) {
-                tvTrend.background = ContextCompat.getDrawable(root.context, R.drawable.bg_trend_up)
-                tvTrend.setTextColor("#10B981".toColorInt())
-            } else {
-                tvTrend.background = ContextCompat.getDrawable(root.context, R.drawable.bg_trend_down)
-                tvTrend.setTextColor("#EF4444".toColorInt())
-            }
+            val context = root.context
+            val colorRes = if (isUp) R.color.trend_up else R.color.trend_down
+            val drawableRes = if (isUp) R.drawable.bg_trend_up else R.drawable.bg_trend_down
+
+            tvTrend.background = ContextCompat.getDrawable(context, drawableRes)
+            tvTrend.setTextColor(ContextCompat.getColor(context, colorRes))
         }
-
-
     }
 
     override fun getItemCount(): Int {

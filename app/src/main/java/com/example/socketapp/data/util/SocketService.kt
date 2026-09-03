@@ -25,15 +25,11 @@ class SocketService @Inject constructor(
     }
 
     fun observeMarketUpdates(): Flow<ResultWrapper<List<MarketItemResponse>>> = callbackFlow {
-        Log.e("SOCKET_FLOW", "SocketService socket hashCode: ${socket.hashCode()}")
-        Log.e("SOCKET_FLOW", "callbackFlow started, registering listener")
         val listener = Emitter.Listener { args ->
             try {
                 val rawJson = args[0].toString()
-                Log.e("DATA", rawJson)
                 val response = json.decodeFromString<SocketResponse>(rawJson)
                 val dataList = response.result.orEmpty()
-                Log.e("DATA", dataList.toString())
                 trySend(ResultWrapper.Success(data = dataList))
             } catch (e: Exception) {
                 trySend(ResultWrapper.Error(e.localizedMessage))
@@ -42,12 +38,9 @@ class SocketService @Inject constructor(
         }
 
         socket.on(EVENT_MESSAGE, listener)
-        Log.e("SOCKET_FLOW", "socket.on() called, socket.connected() = ${socket.connected()}")  // <- YENİ
 
 
         awaitClose {
-            Log.e("SOCKET_FLOW", "Flow closed, removing listener")  // <- YENİ
-
             socket.off(EVENT_MESSAGE, listener)
         }
     }
