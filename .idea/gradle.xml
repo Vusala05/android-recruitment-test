@@ -9,6 +9,13 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/core" />
+            <option value="$PROJECT_DIR$/core/data" />
+            <option value="$PROJECT_DIR$/feature-market" />
+            <option value="$PROJECT_DIR$/feature-market/data" />
+            <option value="$PROJECT_DIR$/feature-market/ui" />
+            <option value="$PROJECT_DIR$/network" />
+            <option value="$PROJECT_DIR$/storage" />
           </set>
         </option>
       </GradleProjectSettings>

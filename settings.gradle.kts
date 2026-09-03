@@ -24,4 +24,10 @@ dependencyResolutionManagement {
 
 rootProject.name = "SocketApp"
 include(":app")
- 
+include(":storage")
+include(":network")
+include(":core")
+include(":core:data")
+include(":feature-market")
+include(":feature-market:data")
+include(":feature-market:ui")

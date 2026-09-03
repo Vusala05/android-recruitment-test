@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="status_connected">#10B981</color>
+    <color name="status_connecting">#F59E0B</color>
+    <color name="status_disconnected">#94A3B8</color>
+    <color name="status_error">#EF4444</color>
+    <color name="trend_up">#10B981</color>
+    <color name="trend_down">#EF4444</color>
+    <color name="card_background">#1E293B</color>
+    <color name="card_stroke">#334155</color>
+    <color name="divider">#334155</color>
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_price">#F8FAFC</color>
+    <color name="text_secondary">#E2E8F0</color>
+    <color name="text_label">#94A3B8</color>
+    <color name="text_timestamp">#64748B</color>
+</resources>
