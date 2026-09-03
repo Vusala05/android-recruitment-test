@@ -32,6 +32,7 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
+        isCoreLibraryDesugaringEnabled = true
     }
 
 
@@ -40,10 +41,6 @@ android {
         viewBinding = true
     }
 
-    defaultConfig {
-        buildConfigField("String", "SOCKET_URL", "\"https://q.investaz.az\"")
-        buildConfigField("String", "SOCKET_PATH", "\"/live\"")
-    }
 }
 kotlin {
     compilerOptions {
@@ -64,6 +61,7 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.recyclerview)
+    coreLibraryDesugaring(libs.android.desugar.jdk.libs)
 
     //Hilt
     implementation(libs.hilt.android)
@@ -87,8 +85,10 @@ dependencies {
     implementation(libs.socket.io.client) {
         exclude(group = "org.json", module = "json")
     }
-
-
-
+    implementation(project(":storage"))
+    implementation(project(":network"))
+    implementation(project(":core:data"))
+    implementation(project(":feature-market:data"))
+    implementation(project(":feature-market:ui"))
 
 }
