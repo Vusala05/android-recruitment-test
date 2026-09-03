@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">SocketApp</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="live_market_price">Live Market Rates</string>
+    <string name="real_time_socket_data">Real-time Socket Data</string>
+    <string name="status_connected">Connected</string>
+    <string name="status_connecting">Connecting…</string>
+    <string name="status_disconnected">Disconnected</string>
+    <string name="status_error">Error</string>
+    <string name="label_high">High</string>
+    <string name="label_low">Low</string>
+    <string name="label_open">Open</string>
+    <string name="label_volume">Vol</string>
+</resources>
