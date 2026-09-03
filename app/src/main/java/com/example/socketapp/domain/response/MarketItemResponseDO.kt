@@ -1,6 +1,8 @@
 package com.example.socketapp.domain.response
 
+import kotlinx.serialization.Serializable
 
+@Serializable
 data class MarketItemResponseDO(
     val trend: String,
     val symbol: String,
