@@ -1,6 +1,7 @@
 package com.example.socketapp.data.util
 
 import android.util.Log
+import com.example.socketapp.domain.util.SocketConnectionState
 import io.socket.client.Socket
 import jakarta.inject.Inject
 import jakarta.inject.Singleton
@@ -19,10 +20,7 @@ class SocketManager @Inject constructor(
     val connectionState: StateFlow<SocketConnectionState> = _connectionState.asStateFlow()
 
     init {
-        Log.e("SOCKET_FLOW", "SocketManager socket hashCode: ${socket.hashCode()}")
-
         socket.on(Socket.EVENT_CONNECT) {
-            Log.e("SOCKET_FLOW", "EVENT_CONNECT fired!")
             _connectionState.value = SocketConnectionState.Connected
         }
 
@@ -37,13 +35,10 @@ class SocketManager @Inject constructor(
     }
 
     fun connect() {
-        Log.e("SOCKET_FLOW", "connect() called, socket.connected() = ${socket.connected()}")
 
         if (!socket.connected()) {
             _connectionState.value = SocketConnectionState.Connecting
-            Log.e("DATA","Conectedd")
             socket.connect()
-            Log.e("SOCKET_FLOW", "socket.connect() invoked")
 
         }
     }

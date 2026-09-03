@@ -1,4 +1,4 @@
-package com.example.socketapp.data.util
+package com.example.socketapp.domain.util
 
 sealed class SocketConnectionState {
 

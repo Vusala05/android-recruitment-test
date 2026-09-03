@@ -36,7 +36,13 @@ android {
 
 
     buildFeatures {
+        buildConfig = true
         viewBinding = true
+    }
+
+    defaultConfig {
+        buildConfigField("String", "SOCKET_URL", "\"https://q.investaz.az\"")
+        buildConfigField("String", "SOCKET_PATH", "\"/live\"")
     }
 }
 kotlin {
@@ -66,7 +72,14 @@ dependencies {
 
     //Retrofit
     implementation(libs.retrofit)
-   // implementation(libs.converter.gson)
+
+    //Room Database
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.ktx)
+    ksp(libs.androidx.room.compiler)
+
+
+    // implementation(libs.converter.gson)
     implementation(libs.kotlinx.serialization.json)
     implementation(libs.retrofit2.kotlinx.serialization.converter)
 
@@ -74,6 +87,7 @@ dependencies {
     implementation(libs.socket.io.client) {
         exclude(group = "org.json", module = "json")
     }
+
 
 
 
